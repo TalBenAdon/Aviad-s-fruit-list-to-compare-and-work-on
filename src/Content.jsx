@@ -6,11 +6,12 @@ export default function Content() {
 
   const [category, setCategory] = useState()
 
+
   return (
     <div className="content">
-      {category ? <button onClick={()=>setCategory()}>Categories</button> : <></>}
+      {category ? <button onClick={() => setCategory()}>Categories</button> : <></>}
 
-      {!category ?
+      {location.pathname === "/Categories" ?
         <Categories setCategory={setCategory} /> :
         <ItemList category={category} />}
     </div>

@@ -7,14 +7,14 @@ export default function Categories({ setCategory }) {
         // api >> response >> body >> setCat/Object.keys
 
         fetch('https://jbh-mockserver.onrender.com/categories')
-            .then(j => j.json() )
-            .then(res=>setCat(res))
+            .then(j => j.json())
+            .then(res => setCat(res))
 
     }, [])
 
     return (
         <div>
-            {Object.keys(cat).map(c => <button onClick={() => setCategory(c)}>{c}</button>)}
+            {Object.keys(cat).map(c => <button onClick={() => setCategory(c)}><a href={"/Categories/" + c}><img src={cat[c]} /></a></button>)}
         </div>
     )
 }

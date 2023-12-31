@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react"
 import Item from "./Item"
-import data from './data'
-
-export default function ItemList({category}) {
-
-    const [items,setItems] = useState([])
-
-    useEffect(()=>{
-        setItems(data[category])
-    },[])
 
 
-    console.log(category);
+export default function ItemList({ category }) {
+
+    const [items, setItems] = useState([])
+
+    useEffect(() => {
+        fetch(`https://jbh-mockserver.onrender.com/categories/${category}`)
+            .then(response => response.json())
+            .then(res => setItems(res))
+            .then(console.log(category))
+    }), []
+
+
+
     return (
         <div>
             <div id="itemList">
