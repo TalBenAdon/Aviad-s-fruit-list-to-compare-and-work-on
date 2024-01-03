@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom"
 import DataContext from "./context/DataContext"
-import { useContext} from 'react'
+import { useContext } from 'react'
 
 export default function Item({ item }) {
   let { name, emoji, price, id } = item
@@ -7,7 +8,7 @@ export default function Item({ item }) {
   // const valueFromContext = useContext(DataContext)
   // valueFromContext ={ cart, setCart }
 
-  const {cart,setCart} = useContext(DataContext)
+  const { cart, setCart } = useContext(DataContext)
 
   const handlePlus = () => {
     let newCart = { ...cart }
@@ -38,9 +39,14 @@ export default function Item({ item }) {
 
   return (
     <div className='item'>
-      <div>{name}</div>
-      <div>{emoji}</div>
-      <div>{price}</div>
+      <Link className="link" to={'/item/' + id}>
+        <div>
+
+          <div>{name}</div>
+          <div>{emoji}</div>
+          <div>{price}</div>
+        </div>
+      </Link>
       <div>
         <button onClick={handlePlus}>+</button>
         <span>{cart[id]?.qty || 0}</span>

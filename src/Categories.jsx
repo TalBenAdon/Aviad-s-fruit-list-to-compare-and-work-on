@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
-export default function Categories({ setCategory }) {
+export default function Categories() {
     const [cat, setCat] = useState({})
 
     useEffect(() => {
@@ -14,7 +15,7 @@ export default function Categories({ setCategory }) {
 
     return (
         <div>
-            {Object.keys(cat).map(c => <button onClick={() => setCategory(c)}><a href={"/Categories/" + c}><img src={cat[c]} /></a></button>)}
+            {Object.keys(cat).map((c) => <button key={c}><Link to={"/categories/" + c}><img src={cat[c]} /></Link></button>)}
         </div>
     )
 }
