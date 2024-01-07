@@ -16,7 +16,7 @@ export default function ItemList() {
     const [items, setItems] = useState([])
 
     useEffect(() => {
-        if (!loggedIn) {
+        if (!loggedIn || !localStorage.user) {
             nav('/login')
 
         }

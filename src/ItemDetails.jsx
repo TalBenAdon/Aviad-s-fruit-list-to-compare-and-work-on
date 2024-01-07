@@ -17,7 +17,7 @@ export default function ItemDetails() {
   const { cart, setCart } = useContext(DataContext)
 
   useEffect(() => {
-    if (!loggedIn) {
+    if (!loggedIn || !localStorage.user) {
       nav('/login')
 
     }

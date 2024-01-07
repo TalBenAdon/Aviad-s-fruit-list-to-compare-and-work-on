@@ -9,7 +9,7 @@ export default function Categories() {
 
     const { loggedIn } = useContext(UserContext)
     useEffect(() => {
-        if (!loggedIn) {
+        if (!loggedIn || !localStorage.user) {
             nav('/login')
 
         }
