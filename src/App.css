@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -41,11 +44,11 @@
   color: #888;
 }
 
-.item{
-margin:20px
+.item {
+  margin: 20px
 }
 
-#itemList{
+#itemList {
   display: flex;
   justify-content: center;
   width: 550px;
@@ -64,18 +67,9 @@ margin:20px
   width: 700px;
 }
 
-.header {
-  margin-bottom: 10px;
-  width: 100%;
-  font-size: 30px;
-  text-align: left;
-  /* cursor: pointer; */
-  position: sticky;
-  top: 0;
-  background-color: #8888881a;
-}
 
-.layout {
+
+*/ .layout {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -97,10 +91,11 @@ margin:20px
 
 }
 
-.btn-cart{
+.btn-cart {
   display: flex;
   flex-direction: column;
 }
+
 .recycle {
   align-self: center;
   z-index: 1;

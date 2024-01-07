@@ -3,16 +3,33 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LoginInput from './LoginInput'
 
-export default function Login({ setSavedUserInfo }) {
-
+export default function Login({ setSavedUserInfo, setLoggedIn }) {
+    const nav = useNavigate()
     const [userInfo, setUserInfo] = useState({ userName: '', password: '' })
+    useEffect(() => {
+        if (localStorage.user) {
+            let userInfo = JSON.parse(localStorage.user)
+            setSavedUserInfo(userInfo)
+            setLoggedIn(true)
+            nav('/')
+        }
+    }, [])
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault()
 
         axios.post('https://jbh-mockserver.onrender.com/login', userInfo)
             .then(response => {
-                setSavedUserInfo(response)
+                if (response.data.status) {
+
+                    setSavedUserInfo(response.data.user)
+                    setLoggedIn(true)
+                    nav('/')
+                    localStorage.user = JSON.stringify(response.data.user)
+                }
+
             })
     }
 

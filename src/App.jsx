@@ -18,11 +18,11 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [savedUserInfo, setSavedUserInfo] = useState({})
-
+  console.log(savedUserInfo);
   return (
 
 
-    <UserContext.Provider value={{ loggedIn }}>
+    <UserContext.Provider value={{ loggedIn, savedUserInfo }}>
 
       <Routes>
         <Route path='/login' element={<Login setLoggedIn={setLoggedIn} setSavedUserInfo={setSavedUserInfo} />} />

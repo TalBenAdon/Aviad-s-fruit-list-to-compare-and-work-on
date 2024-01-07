@@ -2,11 +2,14 @@
 import ItemList from "./ItemList";
 import Categories from "./Categories";
 import ItemDetails from "./ItemDetails";
-import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import NotFound from "./NotFound";
+
 
 export default function Content() {
   let urls = []
+
+
 
   const myNav = useNavigate()
   urls = location.pathname.split('/').slice(1)

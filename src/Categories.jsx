@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-
+import UserContext from './context/UserContext'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 export default function Categories() {
+    const nav = useNavigate()
     const [cat, setCat] = useState({})
 
+    const { loggedIn } = useContext(UserContext)
+    useEffect(() => {
+        if (!loggedIn) {
+            nav('/login')
+
+        }
+    }, [])
     useEffect(() => {
         // api >> response >> body >> setCat/Object.keys
 
@@ -12,6 +22,7 @@ export default function Categories() {
             .then(res => setCat(res))
 
     }, [])
+
 
     return (
         <div>

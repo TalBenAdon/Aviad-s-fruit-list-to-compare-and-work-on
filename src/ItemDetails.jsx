@@ -2,13 +2,26 @@ import { useParams } from "react-router-dom"
 import DataContext from "./context/DataContext"
 import { useContext } from 'react'
 import { useState, useEffect } from "react"
+import UserContext from './context/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 export default function ItemDetails() {
+
+  const nav = useNavigate()
+
+  const { loggedIn } = useContext(UserContext)
 
   const [item, setItem] = useState({})
   let { name, emoji, price, id } = item
   const { itemId } = useParams()
   const { cart, setCart } = useContext(DataContext)
+
+  useEffect(() => {
+    if (!loggedIn) {
+      nav('/login')
+
+    }
+  }, [])
 
   useEffect(() => {
     fetch('https://jbh-mockserver.onrender.com/items/' + itemId)

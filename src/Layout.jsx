@@ -6,6 +6,7 @@ import UserContext from './context/UserContext';
 import { useContext } from 'react'
 import data from './data'
 import { useNavigate } from 'react-router-dom'
+import UserInfoHeader from './UserInfoHeader';
 
 export default function Layout() {
   const nav = useNavigate()
@@ -25,6 +26,7 @@ export default function Layout() {
   return (
     <DataContext.Provider value={{ cart, setCart }} >
       <div className="layout">
+        <UserInfoHeader />
         <Cart />
         <Content />
 
