@@ -20,7 +20,8 @@ export default function Layout() {
       nav('/login')
 
     }
-  }, [])
+
+  }, [localStorage.user])
 
 
   return (
